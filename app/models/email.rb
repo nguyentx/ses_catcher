@@ -1,3 +1,3 @@
 class Email < ActiveRecord::Base
-	attr_accessor :status, :address
+	attr_accessible :status, :address
 end
