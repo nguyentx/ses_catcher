@@ -1,4 +1,4 @@
-include 'open-uri'
+require 'open-uri'
 
 class EmailsController < ApplicationController
 
