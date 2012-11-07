@@ -14,11 +14,11 @@ class EmailsController < ApplicationController
 			message = JSON.parse( data["Message"])
 			if message["notificationType"] == "Bounce" 
 				bounced_email = message["bounce"]["bouncedRecipients"][0]["emailAddress"]
-				Email.find_or_create( address: bounced_email, status: 'bounced' )
+				Email.find_or_create_by_address( address: bounced_email, status: 'bounced' )
 				# todo Process bounced email
 			elsif message["notificationType"] == "Complaint" 
 				unsubscribe_email = message["complaint"]["complainedRecipients"][0]["emailAddress"]
-				Email.find_or_create( address: unsubscribed_email, status: 'unsubscribed' )
+				Email.find_or_create_by_address( address: unsubscribed_email, status: 'unsubscribed' )
 			end
 		end
 
