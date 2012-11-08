@@ -18,7 +18,7 @@ class EmailsController < ApplicationController
 				# todo Process bounced email
 			elsif message["notificationType"] == "Complaint" 
 				unsubscribe_email = message["complaint"]["complainedRecipients"][0]["emailAddress"]
-				Email.find_or_create_by_address( address: unsubscribed_email, status: 'unsubscribed' )
+				Email.find_or_create_by_address( address: unsubscribe_email, status: 'unsubscribed' )
 			end
 		end
 
